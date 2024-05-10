@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView empty_imageview;
     TextView no_data;
     Database db;
-    ArrayList<String> id, name, lactose, image;
+    ArrayList<String> id, name, lactose, type, image, gluten, steps;
     CustomAdapter customAdapter;
 
     private ActivityResultLauncher<Intent> resultLauncher;
@@ -59,11 +59,13 @@ public class MainActivity extends AppCompatActivity {
         name = new ArrayList<>();
         lactose = new ArrayList<>();
         image = new ArrayList<>();
+        type = new ArrayList<>();
+        gluten = new ArrayList<>();
+        steps = new ArrayList<>();
 
         storeDataInArrays();
-
         customAdapter = new CustomAdapter(MainActivity.this,this, id, name, lactose,
-                image);
+                image, gluten, steps, type);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
@@ -83,10 +85,20 @@ public class MainActivity extends AppCompatActivity {
             no_data.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
+                Log.d("queryResult", "0 " + cursor.getString(0));
+                Log.d("queryResult", "1 " + cursor.getString(1));
+                Log.d("queryResult", "2 " + cursor.getString(2));
+                Log.d("queryResult", "3 " + cursor.getString(3));
+                Log.d("queryResult", "4 " + cursor.getString(4));
+                Log.d("queryResult", "5 " + cursor.getString(5));
+                Log.d("queryResult", "6 " + cursor.getString(6));
                 id.add(cursor.getString(0));
                 image.add(cursor.getString(1));
                 name.add(cursor.getString(2));
+                steps.add(cursor.getString(3));
+                type.add(cursor.getString(4));
                 lactose.add(cursor.getString(5));
+                lactose.add(cursor.getString(6));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);

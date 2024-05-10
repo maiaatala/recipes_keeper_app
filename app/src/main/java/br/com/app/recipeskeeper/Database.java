@@ -14,7 +14,7 @@ public class Database extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "recipes_keeper";
     private static final String TABLE_NAME = "recipes";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
@@ -32,7 +32,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                "( " + COLUMN_ID + "serial primary key, "+
+                "( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 COLUMN_PHOTO + " varchar not null,"+
                 COLUMN_NAME + " varchar not null," +
                 COLUMN_STEPS + " varchar," +
@@ -56,6 +56,7 @@ public class Database extends SQLiteOpenHelper {
         cv.put(COLUMN_LACTOSE, lactose);
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_STEPS, steps);
+        cv.put(COLUMN_TYPE, type);
         cv.put(COLUMN_PHOTO, photo.toString());
 
         long result = db.insert(TABLE_NAME,null, cv);

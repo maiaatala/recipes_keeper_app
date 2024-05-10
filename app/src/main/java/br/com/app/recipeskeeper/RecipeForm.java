@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -69,13 +70,16 @@ public class RecipeForm extends AppCompatActivity {
         boolean gluten = checkGluten.isChecked();
         String type = spinnerType.getSelectedItem().toString();
 
+        Log.d("goingToQuery", "input " + name + " | " + steps + " | " + lactose + " | " + gluten  + " | " + type);
+
+
         boolean response = db.addRecipe(name, steps, recipePicture, type, lactose, gluten );
 
         if (response){
             Toast.makeText(RecipeForm.this,"DADOS INSERIDOS COM SUCESSO", Toast.LENGTH_LONG).show();
             Intent i=new Intent(
                     RecipeForm.this,
-                    OneDetailed.class);
+                    MainActivity.class);
             startActivity(i);
         }else{
             Toast.makeText(RecipeForm.this, "FALHOU", Toast.LENGTH_LONG).show();
