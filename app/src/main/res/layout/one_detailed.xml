@@ -80,24 +80,25 @@
         android:text="gluten"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:textColor="#ffc700" />
 
     <TextView
-        app:layout_constraintTop_toBottomOf="@+id/myImageView"
-        app:layout_constraintLeft_toRightOf="@+id/hasGluten"
-
         android:id="@+id/hasLactose"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_alignEnd="@id/myImageView"
         android:layout_alignBottom="@id/myImageView"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-
+        android:layout_marginTop="10dp"
         android:text="lactose"
+        android:textColor="#ffc700"
+
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@color/white" />
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myImageView" />
 
     <TextView
         app:layout_constraintTop_toBottomOf="@+id/hasLactose"

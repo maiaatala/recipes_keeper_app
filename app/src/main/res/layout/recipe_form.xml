@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:checked="false"
         android:padding="4dp"
-        android:text="Lactose"
+        android:text="Tem Lactose"
         android:textAlignment="textStart"
         android:textSize="15sp"
         android:textColor="@color/white"
