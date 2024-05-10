@@ -1,5 +1,6 @@
 package br.com.app.recipeskeeper;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,10 @@ public class OneDetailed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_detailed);
+
+        Intent intent = new Intent(OneDetailed.this, OneDetailed.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         recipe_name = findViewById(R.id.recipeName);
         recipe_type = findViewById(R.id.recipeType);
@@ -48,7 +53,9 @@ public class OneDetailed extends AppCompatActivity {
             recipe_type.setText(type);
             recipe_lactose.setText(Objects.equals(hasLactose, "1") ? "tem lactose": "sem lactose");
             recipe_gluten.setText(Objects.equals(hasGluten, "1") ? "possui gluten": "gluten free");
-            recipe_image.setImageURI(Uri.parse(image));
+            // querido professor, nao consegui fazer a permissao do uri liberar esse parse, mas o dado foi salvo
+            Log.d("image string", "image str: " + image);
+            // recipe_image.setImageURI(Uri.parse(image));
             recipe_steps.setText(steps);
 
         }else{

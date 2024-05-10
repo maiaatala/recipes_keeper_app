@@ -1,9 +1,12 @@
 package br.com.app.recipeskeeper;
 
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
         registerImageButtonResult();
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 steps.add(cursor.getString(3));
                 type.add(cursor.getString(4));
                 lactose.add(cursor.getString(5));
-                lactose.add(cursor.getString(6));
+                gluten.add(cursor.getString(6));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
@@ -123,13 +127,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     private void registerImageButtonResult(){
         resultLauncher = registerForActivityResult(
+
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult o) {
                         try {
+
                             Log.d("on result launcher", o.toString());
                         }catch(Exception e){
                             Toast.makeText(MainActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();

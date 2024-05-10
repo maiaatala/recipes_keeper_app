@@ -52,7 +52,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(context, OneDetailed.class);
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.putExtra("id", String.valueOf(id.get(position)));
                 intent.putExtra("name", String.valueOf(name.get(position)));
                 intent.putExtra("lactose", String.valueOf(lactose.get(position)));
