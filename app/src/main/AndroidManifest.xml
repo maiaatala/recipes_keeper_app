@@ -13,13 +13,26 @@
         android:theme="@style/Theme.RecipesKeeper"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".OneDetailed"
+            android:label="Detalhes"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RecipeForm"
+            android:label="Adicionar Receita"
+            android:parentActivityName=".MainActivity"
+            />
+
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:label="Livro de Receitas"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

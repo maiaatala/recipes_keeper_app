@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".OneDetailed"
+    android:background="@color/black"
+    >
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/food_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/contentBackground"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignLeft="@id/myImageView"
+        android:layout_alignTop="@id/myImageView"
+        android:layout_alignRight="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:background="#99000000"
+        android:scaleType="centerCrop"
+        app:circularflow_radiusInDP="55"
+
+        app:layout_constraintTop_toTopOf="@+id/myImageView" />
+
+    <TextView
+        app:layout_constraintRight_toRightOf="@+id/myImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/myImageView"
+        android:id="@+id/recipeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_margin="10dp"
+
+        android:text="Nome"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#44ffb2" />
+
+    <TextView
+        app:layout_constraintBottom_toTopOf="@+id/recipeName"
+        app:layout_constraintRight_toRightOf="@+id/myImageView"
+
+        android:id="@+id/recipeType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_marginEnd="10dp"
+
+        android:text="cafe-da-amanha"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:textColor="@color/white" />
+
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/myImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/myImageView"
+
+        android:id="@+id/hasGluten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_marginTop="10dp"
+
+        android:text="gluten"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/white" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/myImageView"
+        app:layout_constraintLeft_toRightOf="@+id/hasGluten"
+
+        android:id="@+id/hasLactose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+
+        android:text="lactose"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/white" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/hasLactose"
+        android:id="@+id/stepsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:text="Passo a Passo"
+        android:textSize="20sp"
+
+        android:textColor="@color/white" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/stepsTitle"
+        android:id="@+id/recipeSteps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/myImageView"
+        android:layout_alignBottom="@id/myImageView"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:text="Passo a Passo"
+        android:textSize="20sp"
+        android:padding="8sp"
+        android:background="#30ffffff"
+        android:textColor="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
